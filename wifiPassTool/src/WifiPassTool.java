@@ -33,6 +33,7 @@ public class WifiPassTool {
 
         if (p.exitValue() != 0) {
             System.out.println("WIFI名查询失败");
+            System.out.println("11111111111111");
         }
 
         String s = null;
