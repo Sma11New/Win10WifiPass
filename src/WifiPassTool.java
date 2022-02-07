@@ -19,12 +19,13 @@ public class WifiPassTool {
         String cmd = "netsh wlan show profiles";
         BufferedReader br = wifiPass.execCmd(cmd);
         List<String> wifiNameList = wifiPass.extractData(br, "所有用户配置文件");
+        System.out.println("-----------Win10 WIFI 密码获取(共" + wifiNameList.size() + "个)-----------");
         // 获取wifi密码
         for (String wifiName:wifiNameList){
             cmd = "netsh wlan show profiles name=\"" + wifiName + "\" key=clear";
             br = wifiPass.execCmd(cmd);
             List<String> passList = wifiPass.extractData(br, "关键内容");
-            System.out.println(wifiName + " ---> " + passList.get(0));
+            System.out.println("【" + wifiName + "】 ---> " + passList.get(0));
         }
     }
 
