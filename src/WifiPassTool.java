@@ -1,3 +1,5 @@
+import sun.awt.OSInfo;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +15,16 @@ import java.util.List;
  **/
 
 public class WifiPassTool {
+
+    static {
+        // 校验操作系统
+        String systemType = System.getProperty("os.name");
+        if (systemType != "Windows 10"){
+            System.out.println("仅支持Win10，当前系统为" + systemType);
+            System.exit(0);
+        }
+    }
+
     public static void main(String[] args) throws IOException, InterruptedException {
         WifiPassTool wifiPass = new WifiPassTool();
         // 获取wifi名
