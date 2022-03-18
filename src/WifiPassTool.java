@@ -19,7 +19,7 @@ public class WifiPassTool {
     static {
         // 校验操作系统
         String systemType = System.getProperty("os.name");
-        if (systemType != "Windows 10"){
+        if (!systemType.equals("Windows 10")){
             System.out.println("仅支持Win10，当前系统为" + systemType);
             System.exit(0);
         }
